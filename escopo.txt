@@ -1,0 +1,53 @@
+Fluxo do trabalho:
+
+Começa exibindo uma tela onde solicita as credenciais (e-mail / ou credencial de administrador do sistema e senha). Uma vez autenticado, o sistema exibirá a próxima tela conforme o tipo de usuário:
+
+1- Se for administrador:
+
+Exibe os domínios já configurados, permitindo que sejam removidos:
+
+meuprimeiro.dominio.com	[LINK PARA REMOVER]
+meusegundo.dominio.com	[LINK PARA REMOVER]
+.
+.
+.
+[CAIXA DE TEXTO PARA NOVO DOMÍNIO] [BOTÃO OU LINK PARA CRIAR]
+
+Link para trocar a própria senha.
+
+1.1 Remover domínio:
+
+Remove-o do BD, recria os arquivos de configuração do Apache e do Bind e chama script para recarregar os servidores (apache e bind). Depois volta à página principal.
+
+1.2 Criar domínio:
+
+Adiciona o domínio no BD apresenta a senha do administrador (senha do root@dominio.criado), recria os arquivos de configuração do Apache e do Bind e chama script para recarregar os servidores (apache e bind). Depois volta à página principal.
+
+1.3 Troca a senha:
+
+Pede nova senha e faz o update no banco de dados. Depois volta à página inicial.
+
+2- Se for administrador do domínio (root@dominio.administrado)
+
+Exibe os usuários do domínio com a opção de removê-los ou de trocar a senha. No primeiro acesso, tem que trocar a própria senha.
+
+primeiro_usuario@dominio.administrado [remover] [trocar senha]
+segundo_usuario@dominio.administrado [remover] [trocar senha]
+terceiro_usuario@dominio.administrado [remover] [trocar senha]
+.
+.
+.
+[CAIXA DE TEXTO PARA NOVO USUÁRIO DO DOMÍNIO] [BOTÃO OU LINK PARA CRIAR]
+
+Link para trocar a própria senha.
+
+2.1 Página para remover usuário: remove do BD e volta para a página inicial;
+2.2 Página para trocar a senha de um usuário do domínio virtual dele: Sorteia a senha, exibe e altera no BD. Depois volta para a página inicial;
+2.3 Página para criar usuário: sortear a senha, exibi-la e inserir no banco de dados. Depois volta para a página inicial;
+2.4 Troca da própria senha: mesma funcionalidade do item 1.3;
+
+3- Se for usuário comum do domínio (usuario@dominio.virtual)
+
+Se for o primeiro acesso ou a senha acabar de ser trocada pelo administrador, tem que ir para a tela de troca de senha; 
+
+3.4 Troca da própria senha: mesma funcionalidade do item 1.3;
