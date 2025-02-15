@@ -1,0 +1,20 @@
+zone "exemplo1.com" IN {
+       type master;
+       file "/var/projeto-asa/zonas/zonas.projeto";
+       allow-query { any; };
+};
+zone "exemplo2.net" IN {
+       type master;
+       file "/var/projeto-asa/zonas/zonas.projeto";
+       allow-query { any; };
+};
+zone "exemplo3.org" IN {
+       type master;
+       file "/var/projeto-asa/zonas/zonas.projeto";
+       allow-query { any; };
+};
+zone "exemplo4.local" IN {
+       type master;
+       file "/var/projeto-asa/zonas/zonas.projeto";
+       allow-query { any; };
+};

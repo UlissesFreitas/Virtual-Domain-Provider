@@ -1,0 +1,64 @@
+$TTL 30
+$ORIGIN exemplo1.com.
+@      IN      SOA     exemplo1.com.                root   (
+               2025021500
+               2M
+               1M
+               5M
+               30      )
+
+       IN      A       192.168.102.127
+       IN      NS      @
+       IN      MX  5   mail
+
+www                  IN      CNAME   @
+mail                 IN      A       192.168.102.127
+ftp                  IN      A       192.168.102.127
+$TTL 30
+$ORIGIN exemplo2.net.
+@      IN      SOA     exemplo2.net.                root   (
+               2025021500
+               2M
+               1M
+               5M
+               30      )
+
+       IN      A       192.168.102.127
+       IN      NS      @
+       IN      MX  5   mail
+
+www                  IN      CNAME   @
+mail                 IN      A       192.168.102.127
+ftp                  IN      A       192.168.102.127
+$TTL 30
+$ORIGIN exemplo3.org.
+@      IN      SOA     exemplo3.org.                root   (
+               2025021500
+               2M
+               1M
+               5M
+               30      )
+
+       IN      A       192.168.102.127
+       IN      NS      @
+       IN      MX  5   mail
+
+www                  IN      CNAME   @
+mail                 IN      A       192.168.102.127
+ftp                  IN      A       192.168.102.127
+$TTL 30
+$ORIGIN exemplo4.local.
+@      IN      SOA     exemplo4.local.                root   (
+               2025021500
+               2M
+               1M
+               5M
+               30      )
+
+       IN      A       192.168.102.127
+       IN      NS      @
+       IN      MX  5   mail
+
+www                  IN      CNAME   @
+mail                 IN      A       192.168.102.127
+ftp                  IN      A       192.168.102.127
