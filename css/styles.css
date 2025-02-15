@@ -1,51 +1,58 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #4B0082;
+    background-color: #2b4f60;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
 }
-
-.login-container {
-    background-color: #FFFFFF;
-    padding: 40px; /* Aumentei o padding */
+/*  Cria o card */
+.card {
+    background-color: white;
+    padding: 30px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 400px; /* Aumentei a largura */
+    width: 400px;
 }
 
-.login-form {
+/*  Faz os itens se alinharem verticalmente
+    dentro do card */
+.formulario {
     display: flex;
     flex-direction: column;
 }
-
-.login-form label {
+/*  estiliza o campo label
+    -nome em cima dos input */
+.formulario label {
     margin-bottom: 5px;
     font-weight: bold;
 }
-
-.login-form input {
+/* estiliza o campo de senha */
+.formulario input {
     margin-bottom: 15px;
     padding: 10px;
     border: 1px solid #CCCCCC;
     border-radius: 5px;
 }
 
+/*  Estiliza o BTN de troca de senha  */
+/* Talves seja retirado */
 .forgot-password {
     align-self: flex-end;
     margin-bottom: 20px;
     color: #4B0082;
     text-decoration: none;
 }
-
+/* Talves seja retirado */
 .forgot-password:hover {
     text-decoration: underline;
 }
 
-.login-button {
+/* Estiliza o BTN de login */
+.button {
     background-color: #FFA07A;
+    width: 100%;
     color: #FFFFFF;
     padding: 10px;
     border: none;
@@ -54,9 +61,38 @@ body {
     font-weight: bold;
 }
 
-.login-button:hover {
+.button:hover {
     background-color: #FF7F50;
 }
+
+
+
+.sidebar {
+    height: 100vh;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #3b2f2f;
+    padding-top: 20px;
+}
+
+.sidebar a {
+    padding: 20px 40px;
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+    display: block;
+}
+
+.sidebar a:hover {
+    background-color: #575757;
+}
+
+.nada {
+    padding: 30px;
+}
+
 
 footer {
     position: absolute;
@@ -64,38 +100,4 @@ footer {
     text-align: center;
     width: 100%;
     color: #FFFFFF;
-}
-
-.domain-settings {
-    background-color: #ffffff;
-    border: 1px solid #ccc;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
-    text-align: center;
-}
-
-.domain-settings label {
-    display: block;
-    margin-bottom: 10px;
-    font-weight: bold;
-}
-
-.domain-settings select {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-.domain-settings button {
-    width: 100%;
-    padding: 10px;
-    background-color: #f0f0f0;
-    border: 1px solid #ccc;
-    color: #999;
-    cursor: not-allowed;
-    border-radius: 5px;
 }

@@ -1,19 +1,36 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Configurações de Domínio</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Formulário em Card</title>
+    <link rel="stylesheet" href="css/styles.css">
+
 </head>
 <body>
-    <div class="domain-settings">
-        <label for="domain-select">Acesse as configurações de um domínio</label>
-        <select id="domain-select">
-            <option value="" disabled selected>Selecione o domínio</option>
-            <!-- Adicione as opções de domínio aqui -->
-        </select>
-        <button id="manage-button" disabled>Gerenciar</button>
+    <div class="sidebar">
+        <div class="nada"></div>
+        <a href="#">Criar Dominio</a>
+        <a href="#">Cadastrar Usuraio</a>
+        <a href="#">Remover Dominio</a>
+        <a href="#">Opção 4</a>
+        <a href="#">Opção 5</a>
+    </div>
+
+    <div class="card">
+        <h2>Cadastre um Usuário</h2>
+        <form class="formulario" action="criar-dominio-front.php" method="POST">
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" name="nome" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="senha">Senha</label>
+            <input type="password" id="senha" name="senha" required>
+        </form>
+            
+        <button class="button" type="submit">Cadastrar</button>
     </div>
 </body>
 </html>

@@ -1,12 +1,3 @@
-<?php
-Session_start();
-
-if( $_SESSION["autenticado"]=1)
-	header("Location: testebd.php");
-
-$_SESSION['autenticado']=0;
-?>
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -18,16 +9,16 @@ $_SESSION['autenticado']=0;
 </head>
 
 <body>
-    <div class="login-container">
-        <form class="login-form" action="login.php" method="POST">
+    <div class="card">
+        <form class="formulario" action="login.php" method="POST">
             <label for="email">Email</label>
-            <input type="email" id="email" placeholder="Digite seu email">
+            <input type="email" id="email" placeholder="Digite seu email" name="email">
             
             <label for="password">Senha</label>
-            <input type="password" id="password" placeholder="Digite sua senha">
+            <input type="password" id="password" placeholder="Digite sua senha" name="senha">
             <a href="#" class="forgot-password">Esqueceu a senha?</a>
             
-            <button type="submit" class="login-button">ENTRAR NO PAINEL</button>
+            <button type="submit" class="button">ENTRAR NO PAINEL</button>
         </form>
     </div>
 
