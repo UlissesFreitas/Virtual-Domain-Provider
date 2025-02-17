@@ -1,4 +1,5 @@
 <?php
+include 'vars.php';
 Session_start();
 if (!($_SESSION["autenticado"]))
         header("Location: index.html");
@@ -41,21 +42,22 @@ if (!($_SESSION["autenticado"]))
                 <TABLE BORDER=1>
                 <TR><TH>Nome</TH><TH>Emailtos</TH><TH>Desabilitar</TH></TR>
             ");
-        
+            
             while($line =  $result->fetch_assoc())
             {
+                              
+                if($line["dominio_id"] == $_SESSION["dominio_id"]){
+                    echo "<FORM ACTION=\"desabilitar_email.php\" METHOD=\"POST\">" .
+                    "<TR><TD>" . 
+                    "<INPUT TYPE=\"TEXT\" VALUE=\"" . $line['nome'] . "\" name=\"nome\">" .
+                    "</TD><TD>" . 
+                    "<INPUT TYPE=\"TEXT\" VALUE=\"" . $line['email'] . "\" name=\"email\">" . 
+                    "</TD><TD>" ;
+                    echo $line['ativo'] == 's' ?  "<INPUT TYPE=\"SUBMIT\" VALUE=\"Desabilitar\">" : "<INPUT TYPE=\"SUBMIT\" VALUE=\"Habilitar\">";
 
-                echo "<FORM ACTION=\"desabilitar_email.php\" METHOD=\"POST\">" .
-                "<TR><TD>" . 
-                "<INPUT TYPE=\"TEXT\" VALUE=\"" . $line['nome'] . "\" name=\"nome\">" .
-                "</TD><TD>" . 
-                "<INPUT TYPE=\"TEXT\" VALUE=\"" . $line['email'] . "\" name=\"email\">" . 
-                "</TD><TD>" ;
-                echo $line['ativo'] == 's' ?  "<INPUT TYPE=\"SUBMIT\" VALUE=\"Desabilitar\">" : "<INPUT TYPE=\"SUBMIT\" VALUE=\"Habilitar\">";
-
-                echo    "</TD></TR>" .
-                "</FORM>" ;
-            
+                    echo    "</TD></TR>" .
+                    "</FORM>" ;
+                }
             }
             
         ?>

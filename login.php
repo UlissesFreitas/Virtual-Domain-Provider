@@ -1,4 +1,5 @@
 <?php
+include 'vars.php';
 
 
 if (isset($_POST['email']) and isset($_POST['senha']))
@@ -40,12 +41,24 @@ if ($bd->errno)
 {
         die("Erro na execucao do SQL: $sql ($bd->errno) $bd->error");
 }
+echo "----";
 
 if ($line =  $result->fetch_assoc())
 {
 
 
-        $_SESSION["autenticado"]=1;
+        $_SESSION["autenticado"] = 1;
+        $_SESSION["user_name"] = $line["nome"];
+        $_SESSION["user_email"] = $line["email"];
+        $_SESSION["dominio_id"] = $line["dominio_id"];
+        echo "----";
+        echo $_SESSION["user_name"];
+        echo "----";
+        echo $_SESSION["user_email"];
+        echo "----";
+        echo $_SESSION["dominio_id"];
+
+
 
         if( $line["tipo"] == 'super-admin')
                 header("Location: painel-super-admin.html");
