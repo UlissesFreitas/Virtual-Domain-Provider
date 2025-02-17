@@ -1,37 +1,67 @@
 <?php
-Session_start();
-if( $_SESSION["autenticado"]==1)
-	header("Location: testebd.php");
+
 
 if (isset($_POST['email']) and isset($_POST['senha']))
 {
-	$login=$_POST['email'];
-	$senha=$_POST['senha'];
+        $email=$_POST['email'];
+        $senha=$_POST['senha'];
 }
 else
-	die('Erro na passagem de par&acirc;metros');
+        die('Erro na passagem de par&acirc;metros');
 
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 $bd = new mysqli("192.168.102.100", "CONTAINER024", "1F(999944)", "BD024");
+
 if ($bd->connect_errno)
 {
-	die("Falha ao conectar ao MySQL: (" . $bd->connect_errno . ") " . $bd->connect_error);
+        die("Falha ao conectar ao MySQL: (" . $bd->connect_errno . ") " . $bd->connect_error);
 }
 
-$result = $bd->query("SELECT * from ftpusers where email='$email' and senha='$senha'");
+Session_start();
+// tenho que refazer essa bosta
+/*
+if( $_SESSION["autenticado"]==1){
+        $result = $bd->query("SELECT tipo FROM ftpusers WHERE emal='$email'");
+        echo 'ja logado';
+        if( $line["tipo"] == 'super-admin')
+                header("Location: painel-super-admin.html");
+        else if ($line["tipo"] == 'admin')
+                header("Location: painel-admin.html");
+        else if ( $line["tipo"] == 'normal')
+                header("Location: painel-normal.html");
+        else
+                header("Location: index.html");
+
+
+}
+*/
+$result = $bd->query("SELECT * from ftpusers where email='$email' and senha='$senha' and ativo='s'");
 if ($bd->errno)
 {
-	die("Erro na execucao do SQL: $sql ($bd->errno) $bd->error");
-};
+        die("Erro na execucao do SQL: $sql ($bd->errno) $bd->error");
+}
 
 if ($line =  $result->fetch_assoc())
 {
-	$_SESSION["autenticado"]=1;
-	header("Location: dominio.php");
+
+
+        $_SESSION["autenticado"]=1;
+
+        if( $line["tipo"] == 'super-admin')
+                header("Location: painel-super-admin.html");
+        else if ($line["tipo"] == 'admin')
+                header("Location: painel-admin.html");
+        else if ( $line["tipo"] == 'normal')
+                header("Location: painel-normal.html");
+
+        else
+                header("Location: index.html");
+
 }
-else
-{
-	$_SESSION["autenticado"]=0;
-	header("Location: index.html");
+else {
+
+        $_SESSION["autenticado"]=0;
+        header("Location: index.html");
 }
 ?>
+
