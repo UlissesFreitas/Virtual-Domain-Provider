@@ -2,7 +2,7 @@
 include 'vars.php';
 Session_start();
 if (!($_SESSION["autenticado"]))
-        header("Location: index.html");
+        header("Location: index.php");
 ?>
 
 <!DOCTYPE html>
@@ -18,8 +18,8 @@ if (!($_SESSION["autenticado"]))
     <div class="sidebar">
         <div class="nada"></div>
 
-        <a href="painel-admin.html">Cadastrar Usuraio</a>
-        <a href="listar_emails.php">Listar Usuraios</a>
+        <a href="painel-admin.php">Cadastrar Email</a>
+        <a href="listar_emails.php">Listar Email</a>
         <a href="trocar_senha.php">Trocar Senha</a>
         <a href="#">Sair</a>
 

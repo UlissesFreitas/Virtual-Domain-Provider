@@ -1,7 +1,6 @@
 <?php
 include 'vars.php';
 
-
 if (isset($_POST['email']) and isset($_POST['senha']))
 {
         $email=$_POST['email'];
@@ -41,7 +40,6 @@ if ($bd->errno)
 {
         die("Erro na execucao do SQL: $sql ($bd->errno) $bd->error");
 }
-echo "----";
 
 if ($line =  $result->fetch_assoc())
 {
@@ -51,30 +49,22 @@ if ($line =  $result->fetch_assoc())
         $_SESSION["user_name"] = $line["nome"];
         $_SESSION["user_email"] = $line["email"];
         $_SESSION["dominio_id"] = $line["dominio_id"];
-        echo "----";
-        echo $_SESSION["user_name"];
-        echo "----";
-        echo $_SESSION["user_email"];
-        echo "----";
-        echo $_SESSION["dominio_id"];
-
-
 
         if( $line["tipo"] == 'super-admin')
-                header("Location: painel-super-admin.html");
+                header("Location: painel-super-admin.php");
         else if ($line["tipo"] == 'admin')
-                header("Location: painel-admin.html");
+                header("Location: painel-admin.php");
         else if ( $line["tipo"] == 'normal')
-                header("Location: painel-normal.html");
+                header("Location: painel-normal.php");
 
         else
-                header("Location: index.html");
+                header("Location: index.php");
 
 }
 else {
 
         $_SESSION["autenticado"]=0;
-        header("Location: index.html");
+        header("Location: index.php");
 }
 ?>
 
