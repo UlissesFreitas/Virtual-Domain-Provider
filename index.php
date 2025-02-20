@@ -10,7 +10,7 @@
 
 <body>
     <div class="card">
-        <form class="formulario" action="login.php" method="POST">
+        <form class="formulario" action="login-back.php" method="POST">
             <label for="email">Email</label>
             <input type="email" id="email" placeholder="Digite seu email" name="email">
             

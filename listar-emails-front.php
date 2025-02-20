@@ -18,10 +18,10 @@ if (!($_SESSION["autenticado"]))
     <div class="sidebar">
         <div class="nada"></div>
 
-        <a href="painel-admin.php">Cadastrar Email</a>
-        <a href="listar_emails.php">Listar Email</a>
-        <a href="trocar_senha.php">Trocar Senha</a>
-        <a href="#">Sair</a>
+        <a href="painel-admin-front.php">Cadastrar Email</a>
+        <a href="listar-emails-front.php">Listar Emails</a>
+        <a href="trocar-senha-front.php">Trocar Senha</a>
+        <a href="sair.php">Sair</a>
 
     </div>
 
@@ -40,14 +40,14 @@ if (!($_SESSION["autenticado"]))
             echo("
             
                 <TABLE BORDER=1>
-                <TR><TH>Nome</TH><TH>Emailtos</TH><TH>Desabilitar</TH></TR>
+                <TR><TH>Nome</TH><TH>Email</TH><TH>Desabilitar</TH></TR>
             ");
             
             while($line =  $result->fetch_assoc())
             {
                               
                 if($line["dominio_id"] == $_SESSION["dominio_id"]){
-                    echo "<FORM ACTION=\"desabilitar_email.php\" METHOD=\"POST\">" .
+                    echo "<FORM ACTION=\"desabilitar-email-back.php\" METHOD=\"POST\">" .
                     "<TR><TD>" . 
                     "<INPUT TYPE=\"TEXT\" VALUE=\"" . $line['nome'] . "\" name=\"nome\">" .
                     "</TD><TD>" . 

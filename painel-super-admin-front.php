@@ -10,36 +10,26 @@
 <body>
     <div class="sidebar">
         <div class="nada"></div>
-
-        <a href="painel-admin.php">Cadastrar Email</a>
-        <a href="listar_emails.php">Listar Emails</a>
-        <a href="trocar_senha.php">Trocar Senha</a>
+        <a href="painel-super-admin-front.php">Criar Dominio</a>
+        <a href="criar-adm-front.php">Criar ADM de Dominio</a>
+        <a href="listar-dominios-front.php">Listar Dominio</a>
         <a href="sair.php">Sair</a>
-
     </div>
 
     <div class="card">
-        <h2>Cadastre um Email</h2>
-        <form class="formulario" action="create-email.php" method="POST">
-            <label for="nome">Nome</label>
-            <input type="text" id="nome" name="nome" required>
+        <h2>Cadastre um Novo Dominio</h2>
+        <form class="formulario" action="criar-dominio-back.php" method="POST">
+            <label for="nome">Nome do Dominio</label>
+            <input type="text" id="nome" name="nome_dominio" required>
 
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
-
-            <label for="senha">Senha</label>
-            <input type="password" id="senha" name="senha" required>
-        
             <button class="button" type="submit">Cadastrar</button>
-
+            
             <?php
                 if(isset($_GET['retorno']))
                     echo "<label>" . $_GET['retorno'] . "</label>";
             ?>
-
         </form>
             
-       
     </div>
 </body>
 </html>

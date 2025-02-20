@@ -29,7 +29,7 @@ if ($bd->errno)
 
 if ($line =  $result->fetch_assoc()){
         echo 'O email ja existe';
-        header('Location: painel-admin.php?retorno=' . urlencode('o mail ja existe'));
+        header('Location: painel-admin-front.php?retorno=' . urlencode('o mail ja existe'));
         exit;
 }
 
@@ -45,7 +45,7 @@ $result = $bd->query("SELECT * FROM dominios WHERE id = '$dominio_id'");
 $line = $result->fetch_assoc();
 
 if ($dominio != $line['dominio']){
-        header('Location: painel-admin.php?retorno=' . urlencode('Dominio Invalido'));
+        header('Location: painel-admin-front.php?retorno=' . urlencode('Dominio Invalido'));
         exit;
 }
 
@@ -62,7 +62,7 @@ if ($bd->errno)
         exit;
 }
 
-header('Location: painel-admin.php?retorno=' . urlencode('Email criado.'));
+header('Location: painel-admin-front.php?retorno=' . urlencode('Email criado.'));
 exit;
 
 ?>

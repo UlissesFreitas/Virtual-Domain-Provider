@@ -10,14 +10,16 @@
 <body>
     <div class="sidebar">
         <div class="nada"></div>
-        <a href="trocar_senha.php">Alterar Senha</a>
+        <a href="painel-super-admin-front.php">Criar Dominio</a>
+        <a href="criar-adm-front.php">Criar ADM de Dominio</a>
+        <a href="listar-dominios-front.php">Listar Dominio</a>
         <a href="sair.php">Sair</a>
-        <a href="#">Opção 5</a>
+
     </div>
 
     <div class="card">
-        <h2>Cadastre um Usuário</h2>
-        <form class="formulario" action="criar-dominio-front.php" method="POST">
+        <h2>Cadastre um Email</h2>
+        <form class="formulario" action="criar-adm-back.php" method="POST">
             <label for="nome">Nome</label>
             <input type="text" id="nome" name="nome" required>
 
@@ -26,9 +28,17 @@
 
             <label for="senha">Senha</label>
             <input type="password" id="senha" name="senha" required>
+        
+            <button class="button" type="submit">Cadastrar</button>
+
+            <?php
+                if(isset($_GET['retorno']))
+                    echo "<label>" . $_GET['retorno'] . "</label>";
+            ?>
+
         </form>
             
-        <button class="button" type="submit">Cadastrar</button>
+       
     </div>
 </body>
 </html>

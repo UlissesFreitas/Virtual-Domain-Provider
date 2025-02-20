@@ -31,5 +31,5 @@ else
 
 
 
-header("Location: listar_emails.php");
+header("Location: listar-emails-front.php");
 ?>

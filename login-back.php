@@ -38,6 +38,7 @@ if( $_SESSION["autenticado"]==1){
 $result = $bd->query("SELECT * from ftpusers where email='$email' and senha='$senha' and ativo='s'");
 if ($bd->errno)
 {
+        //header("Location: index.php");
         die("Erro na execucao do SQL: $sql ($bd->errno) $bd->error");
 }
 
@@ -51,11 +52,11 @@ if ($line =  $result->fetch_assoc())
         $_SESSION["dominio_id"] = $line["dominio_id"];
 
         if( $line["tipo"] == 'super-admin')
-                header("Location: painel-super-admin.php");
+                header("Location: painel-super-admin-front.php");
         else if ($line["tipo"] == 'admin')
-                header("Location: painel-admin.php");
+                header("Location: painel-admin-front.php");
         else if ( $line["tipo"] == 'normal')
-                header("Location: painel-normal.php");
+                header("Location: painel-normal-front.php");
 
         else
                 header("Location: index.php");
